@@ -1,0 +1,1 @@
+export const webTech = ['Ruby on rails','React','Angular','Symfony'];

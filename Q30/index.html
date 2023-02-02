@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #calcbox{
+            height:380px;
+            width:250px;
+            border:1px solid black;
+            border-radius:8px;
+            display:grid;
+            justify-content: center;
+            align-items: end;
+        }
+        #calculator{
+            
+            display:grid;
+            gap:10px;
+            grid-template-columns: repeat(4,1fr);
+            
+            
+        }
+        button{
+            height:40px;
+            width:40px;
+            justify-content: center;
+        }
+        .display{
+            width:220px;
+            height:25px;
+            padding-top:12px;
+            font-size:20px;
+            border:1px solid black;
+            border-radius: 8px;
+            margin-left:5px;
+            background-color: rgb(191, 196, 196);
+        }
+        
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div id="calcbox">
+        <div class="display"></div>
+    <div id = "calculator">
+    <button id="button">7</button>
+    <button id="button">8</button>
+    <button id="button">9</button>
+    <button id="button">4</button>
+    <button id="button">5</button>
+    <button id="button">6</button>
+    <button id="button">1</button>
+    <button id="button">2</button>
+    <button id="button">3</button>
+    <button id="button">0</button>
+    <button id="button">+</button>
+    <button id="button">-</button>
+    <button id="button">/</button>
+    <button id="button">*</button>
+    <button id="button">=</button>
+    <button id="button">C</button>
+
+    </div>
+</div>
+    <script>
+    let string ="";
+    let buttons = document.querySelectorAll('#button');
+     Array.from(buttons).forEach((button)=>{
+        button.addEventListener('click',(e)=>{
+            if(e.target.innerHTML=="="){
+                string = eval(string)
+                document.querySelector(".display").textContent = string;
+            }
+            else if(e.target.innerHTML=="C"){
+                string = "";
+                document.querySelector(".display").textContent = string;
+            }
+            else{
+            string = string + e.target.innerHTML;
+            document.querySelector(".display").textContent = string;
+            }
+        })
+    })
+   
+
+
+
+  </script>
+  </body>
+</html>
